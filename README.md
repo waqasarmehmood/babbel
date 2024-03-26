@@ -9,7 +9,9 @@ There are 3 main components of this repository
 * Python codebase 
 * Documentation
 
-Architectural documents are provided in /docs directory. 
+Architectural documents are provided in **/docs** directory. 
+
+![Architecture](docs/babbel_datalake_architecture.png)
 
 ## Prerequisites
 
@@ -23,8 +25,46 @@ Following prerequisites are required to build, test and deploy this project.
 
 ## Project Structure
 
-### Terraform 
-
+```
+├── Makefile
+├── README.md
+├── docs
+│   ├── Data_Engineer_-_take-home_challenge.pdf
+│   ├── babbel_datalake.drawio.xml
+│   └── babbel_datalake_architecture.pdf
+├── infra
+│   ├── environment
+│   │   ├── dev
+│   │   ├── local
+│   │   │   ├── glue.tf
+│   │   │   ├── main.tf
+│   │   │   ├── provider.tf
+│   │   │   ├── s3.tf
+│   │   ├── production
+│   │   ├── qa
+│   │   └── staging
+│   ├── modules
+│   │   ├── airflow
+│   │   ├── s3
+│   │   │   ├── s3.tf
+│   │   │   └── variables.tf
+│   │   └── vpc
+│   │       ├── main.tf
+│   │       └── variables.tf
+│   ├── outputs.tf
+└── src
+    ├── babbel-etl
+    │   ├── README.md
+    │   ├── babbel_etl
+    │   │   ├── KinesisStreamProcessor.py
+    │   │   └── __init__.py
+    │   ├── dist
+    │   ├── pyproject.toml
+    │   └── tests
+    │       └── __init__.py
+    └── jobs
+        └── kinesis_event_stream_job.py
+```
 
 ## How to run?
 A make file is provided to build, test and deploy this project in Local Stack. 
